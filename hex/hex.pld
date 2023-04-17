@@ -1,0 +1,121 @@
+/* Headers */
+Name     hex;
+PartNo   00;
+Date     4/17/2023;
+Revision 01;
+Designer Lori Holden;
+Company  None;
+Assembly None;
+Location ;
+Device   f1508ispplcc84;
+
+/* Configure cupl */
+PROPERTY ATMEL {PIN_KEEP = OFF};
+PROPERTY ATMEL {SECURITY = OFF};
+PROPERTY ATMEL {POWER_RESET = ON};
+PROPERTY ATMEL {PIN_KEEP = OFF};
+PROPERTY ATMEL {LOGIC_DOUBLING = OFF};
+PROPERTY ATMEL {TDI_PULLUP = ON};
+PROPERTY ATMEL {TMS_PULLUP = ON};
+PROPERTY ATMEL {CASCADE_LOGIC = ON};
+PROPERTY ATMEL {OUTPUT_FAST = ON};
+PROPERTY ATMEL {PREASSIGN = YES};
+
+/* Inputs */
+// Push-button Switches
+PIN 54=SWA;
+PIN 51=SWB;
+PIN 49=SWC;
+PIN 44=SWD;
+PIN 9=SWE;
+PIN 6=SWF;
+PIN 4=SWG;
+PIN 80=SWH;
+
+/* Outputs */
+// LEDs
+PIN 69=LED1;
+PIN 67=LED2;
+PIN 64=LED3;
+PIN 60=LED4;
+PIN 27=LED5;
+PIN 24=LED6;
+PIN 18=LED7;
+PIN 15=LED8;
+
+// DSP 1
+PIN 68=!DSP1A;
+PIN 74=!DSP1B;
+PIN 70=!DSP1C;
+PIN 63=!DSP1D;
+PIN 58=!DSP1E;
+PIN 65=!DSP1F;
+PIN 61=!DSP1G;
+PIN 73=!DSP1DOT;
+
+// DSP 2
+PIN 52=!DSP2A;
+PIN 57=!DSP2B;
+PIN 55=!DSP2C;
+PIN 48=!DSP2D;
+PIN 41=!DSP2E;
+PIN 50=!DSP2F;
+PIN 45=!DSP2G;
+PIN 56=!DSP2DOT;
+
+/* Fields */
+FIELD LSB=[SWD, SWC, SWB, SWA];
+FIELD MSB=[SWH, SWG, SWF, SWE];
+
+FIELD DSP1=[DSP1A, DSP1B, DSP1C, DSP1D, DSP1E, DSP1F, DSP1G];
+FIELD DSP2=[DSP2A, DSP2B, DSP2C, DSP2D, DSP2E, DSP2F, DSP2G];
+
+/* Logic */
+LED1=SWA;
+LED2=SWB;
+LED3=SWC;
+LED4=SWD;
+LED5=SWE;
+LED6=SWF;
+LED7=SWG;
+LED8=SWH;
+
+TABLE LSB => DSP1 {
+  //       abcdefg
+  'h'0=>'b'1111110;
+  'h'1=>'b'0110000;
+  'h'2=>'b'1101101;
+  'h'3=>'b'1111001;
+  'h'4=>'b'0110011;
+  'h'5=>'b'1011011;
+  'h'6=>'b'1011111;
+  'h'7=>'b'1110000;
+  'h'8=>'b'1111111;
+  'h'9=>'b'1111011;
+  'h'A=>'b'1110111;
+  'h'B=>'b'0011111;
+  'h'C=>'b'1001110;
+  'h'D=>'b'0111101;
+  'h'E=>'b'1001111;
+  'h'F=>'b'1000111;
+}
+
+TABLE MSB => DSP2 {
+  //       abcdefg
+  'h'0=>'b'1111110;
+  'h'1=>'b'0110000;
+  'h'2=>'b'1101101;
+  'h'3=>'b'1111001;
+  'h'4=>'b'0110011;
+  'h'5=>'b'1011011;
+  'h'6=>'b'1011111;
+  'h'7=>'b'1110000;
+  'h'8=>'b'1111111;
+  'h'9=>'b'1111011;
+  'h'A=>'b'1110111;
+  'h'B=>'b'0011111;
+  'h'C=>'b'1001110;
+  'h'D=>'b'0111101;
+  'h'E=>'b'1001111;
+  'h'F=>'b'1000111;
+}

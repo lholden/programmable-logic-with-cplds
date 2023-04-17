@@ -1,0 +1,16 @@
+Name     blinky;
+PartNo   00;
+Date     4/17/2023;
+Revision 01;
+Designer Lori Holden;
+Company  None;
+Assembly None;
+Location ;
+Device   f1508ispplcc84;
+
+ORDER: SWA, SWB, SWC, SWD, SWE, SWF, SWG, SWH, LED1, LED2, LED3, LED4, LED5, LED6, LED7, LED8;
+
+VECTORS:
+0 0 0 0 0 0 0 0 L L L L L L L L
+1 1 1 1 1 1 1 1 H H H H H H H H
+1 0 0 0 0 0 0 0 H L L L L L L L
